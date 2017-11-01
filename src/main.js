@@ -15,6 +15,7 @@ import login from"./components/front/login.vue"
 import edit from"./components/back/editEssay.vue"
 import manage from"./components/back/manageEssay.vue";
 import result from"./components/front/searchResult.vue"
+import back from"./components/back/backgroundSystem.vue"
 
 
 Vue.use(VueResource);
@@ -48,7 +49,11 @@ const routes = [
     },
     {path:'/admin/editEssay/:id',
         component:edit
-    }
+    },
+    {path:'/admin/back',
+        component:back
+    },
+
 ];
 
 //创建router实例并且把定义好的路由传入

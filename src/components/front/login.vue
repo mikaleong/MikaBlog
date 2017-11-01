@@ -1,24 +1,87 @@
 <template>
 
  <div class="login">
-  <div class="login-box">
 
-    <h1>Web management system</h1>
-  <div>
-    <span>userID：</span>
+    <p class="background_text"> Web management system</p>
+
+  <div class="login_box">
+
+      <div class="login_component">
+    <p>ACCOUNT</p>
     <input type="text" name="userID" v-model="account">
-  </div>
 
-  <div>
-    <span>password：</span>
+    <p>PASSWORD</p>
     <input type="password" name="password" v-model="password">
+
+      <div class="login_button" @click="login">LOGIN</div>
+
   </div>
-      <input type="submit" class="button" value="REGISTER" @click="register">
-      <input type="submit" class="button" value="LOGIN" @click="login">
 
   </div>
  </div>
 </template>
+
+<style>
+
+    .login_component{
+        padding-top: 2.5em;
+    }
+
+    .login_button{
+        background-color: darkcyan;
+        color: white;
+        width: 8em;
+        margin-left: 40%;
+        margin-top: 2em;
+
+    }
+    .background_text{
+        font-size: 8em;
+        color: darkcyan;
+    }
+
+    .login_box input{
+        border: none;
+        border-bottom: 1px solid darkgray;
+        background-color: white;
+    }
+
+    .login_box p{
+        font-size: 0.8em;
+        text-align: left;
+        padding-left: 50%;
+
+    }
+
+    h1{
+        padding-top: 1em;
+    }
+    .login{
+        width: 100%;
+        height: 45em;
+        background-color: #f2f2f2;
+        position: relative;
+    }
+
+    span{
+        display: inline-block;
+        width: 5em;
+    }
+
+    .login_box{
+        border-radius: 20px;
+        box-shadow: 0 0 10px  darkgrey;
+        background-color: white;
+        width: 50%;
+        height: 40%;
+        position: absolute;
+        margin:8em auto auto auto;
+        top: 0;left: 0;right: 0;bottom: 0;
+        opacity: 0.95;
+
+    }
+
+</style>
 
 
 <script>
@@ -33,7 +96,7 @@
             this.$http.get('/api/admin').then(
                 (response)=>{
                     if(response.body.code===0){
-                        this.$router.push('/admin/manageEssay')
+                        this.$router.push('/admin/back')
                     }
                 }
             )
@@ -63,7 +126,7 @@
                     (response) => {
                         console.log(response);
                         if (response.body.code===0) {
-                            that.$router.push('/admin/manageEssay')
+                            that.$router.push('/admin/back')
                         }
                     })
 
@@ -72,34 +135,3 @@
     }
 
 </script>
-
-<style>
-
-  h1{
-    padding-top: 1em;
-  }
-  .login{
-    width: 100%;
-    height: 45em;
-    background-color: #f2f2f2;
-    position: relative;
-  }
-
-  span{
-    display: inline-block;
-    width: 5em;
-  }
-
-  .login-box{
-    border-radius: 20px;
-    box-shadow: 0 0 10px  darkgrey;
-    background-color: white;
-    width: 50%;
-    height: 40%;
-    position: absolute;
-    margin:8em auto auto auto;
-    top: 0;left: 0;right: 0;bottom: 0;
-
-  }
-
-</style>

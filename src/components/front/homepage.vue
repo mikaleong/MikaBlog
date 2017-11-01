@@ -1,7 +1,6 @@
 <template>
 
 <div class="homepage">
-<p>aaaa</p>
 </div>
 
 </template>
@@ -16,7 +15,9 @@
 
 
   .homepage{
-    background-color: cornflowerblue;
+    background-image:url("../../assets/img/homepage.jpg");
+    background-size:100%,45em;
+      background-repeat: no-repeat;
     width: 100%;
     height:45em;
   }

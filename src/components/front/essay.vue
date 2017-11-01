@@ -1,6 +1,6 @@
 <template>
 
-  <div class="essay">
+  <div class="essay_detail">
     <div>{{content}}</div>
 
   </div>

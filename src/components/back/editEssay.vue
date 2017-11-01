@@ -2,17 +2,34 @@
 
     <div class="edit">
 
-        <span class="edit_title">Title:</span>
-        <input v-model="title" placeholder="Untitled">
+        <p >Title</p>
+        <input class="edit_title" v-model="title" placeholder="Untitled">
 
-        <span class="edit_content">Content:</span>
-        <input v-model="content" placeholder="just typing something">
+        <p >Content</p>
+        <textarea class="edit_content" v-model="content" placeholder="just typing something"></textarea>
 
-        <button class="save_button" @click="saveEssay">Save</button>
+        <div class="save_button" @click="saveEssay">Save</div>
 
     </div>
 
 </template>
+
+<style>
+
+    .edit p{
+        text-align: left;
+        padding-left: 25%;
+    }
+    .edit_title{
+        width: 50%;
+        height: 2em;
+    }
+    .edit_content{
+        width: 50%;
+        height: 40em;
+    }
+
+</style>
 
 <script>
 

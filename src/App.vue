@@ -1,7 +1,9 @@
 <template>
   <div id="app">
+
     <div class="navbar">
       <ul class="nav_list">
+        <li></li>
         <li class="search_box" > <input type="search" v-model="text" > <button @click="search(text)">SEARCH</button></li>
         <li> <router-link to="/homepage">HOMEPAGE</router-link></li>
         <li>  <router-link to="/essays">ESSAYS</router-link></li>
@@ -34,11 +36,14 @@ export default {
 
 <style>
 
+  .nav_list li img{
+    width: 5em;
+  }
   .navbar{
    position: relative;
     display: block;
     width: 100%;
-    height: 3em;
+    height: 4em;
     background-color: white;
     border-bottom: solid #ededed 0.05em;
   }

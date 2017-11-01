@@ -1,14 +1,14 @@
 <template>
-    <div id="content">
-        <div class="essayBar">
-        <button @click="writeEssay" >新建文章</button>
-            <button @click="logout" >退出登录</button>
-        </div>
-        <div class="essayList" v-for="item in essays">
-            <div class="essayTitle">{{item.title}}</div>
+    <div class="content">
+
+            <div class="logoutButton" @click="logout" >click to LOG OUT</div>
+   <div class="essayList">
+        <div class="essayBox" v-for="item in essays">
+            <div class="essayTitle">《{{item.title}}》</div>
             <div class="essayEdit" @click="editEssay(item._id)">Edit</div>
             <div class="essayDelete" @click="deleteEssay(item._id)">delete</div>
         </div>
+   </div>
 
     </div>
 
@@ -16,12 +16,27 @@
 
 <style>
 
-    .essayList{
-        padding-top: 1rem;
+    .logoutButton{
+        text-align: left;
+        color: darkgray;
+        padding:1em  0 0 1em;
+
+    }
+
+   .content{
+       text-align: center;
+   }
+
+    .essayBox{
+        margin:0 auto;
+        margin-top: 1em;
+        width: 50%;
+
     }
 
     .essayTitle{
         display: inline;
+        background-color: #fceaea;
     }
 
     .essayEdit{
@@ -52,7 +67,6 @@
         methods:{
 
             logout:function () {
-
                 this.$http.get('/api/admin/logout');
             },
 
@@ -62,11 +76,6 @@
                     (response)=>this.essays=response.body,
                     (response)=>console.log(response)
                 )
-            },
-            //写文章
-            writeEssay:function(id){
-                //跳转至编辑页面
-                this.$router.push('/admin/editEssay')
             },
 
             //编辑文章
