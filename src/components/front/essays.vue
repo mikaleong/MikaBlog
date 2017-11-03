@@ -20,7 +20,7 @@
 
     .essay_intro{
         padding-top: 7em;
-        padding-left: 2em;
+        padding-left: 3em;
     }
     .essay_intro p{
         font-size: 3em;
@@ -34,7 +34,7 @@
     .essay_box{
         background-color: white;
         margin-top: 2em;
-        margin-left: 1em;
+        margin-left: 2em;
         width: 20%;
         height: 10em;
         float: left;

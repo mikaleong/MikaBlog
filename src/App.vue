@@ -12,7 +12,10 @@
       </ul>
     </div>
 
+
+
     <router-view class="view" id="view"></router-view>
+
 
     </div>
 

@@ -2,7 +2,11 @@
     <div class="about">
 
 
-        <div class="about-detail">
+        <div class="about_pic">
+            <img class="about_pic" src="../../assets/img/FullSizeRender 2.jpg">
+        </div>
+
+        <div class="about_detail">
 
             <h1>Wing Yu Leung</h1>
 
@@ -19,9 +23,10 @@
             </div>
 
 
-            <div class="contact">
+            <div  class="contact">
 
-                <a href="https://www.zhihu.com/people/mikaleong" target="_blank"><img class="zhihu" src="../../assets/img/zhihu-link.png"></a>
+                <a  href="https://www.zhihu.com/people/mikaleong" target="_blank">
+                    <img ref="zhihu" class="zhihu" src="../../assets/img/zhihu-link.png"></a>
                 <a href="https://weibo.com/213b" target="_blank"><img class="weibo" src="../../assets/img/weibo-link.png"></a>
                 <a href="https://github.com/mikaleong" target="_blank"><img class="github" src="../../assets/img/github-link.png"></a>
 
@@ -32,11 +37,37 @@
 
 </template>
 
+<script>
+    
+    export default{
+        
+        data(){
+            return{
+                
+            }
+        },
+        methods:{
+
+
+        }
+    }
+    
+</script>
+
 
 <style>
 
+    .about_pic{
+        width: 15em;
+        border-radius: 50%;
+        position: absolute;
+        left: 18%;
+        top:30%;
+        box-shadow:1px 1px 10px #888888;
+    }
+
     .about{
-        background-color:#f0f0f0;
+        background-color:#f7f7f7;
         width: 100%;
         height:45em;
         background-size:100%,45em;
@@ -45,19 +76,21 @@
     }
 
 
-    .about-detail{
-
+    .about_detail{
+        border-radius: 50%;
         background-color: white;
-        width: 50%;
-        height: 32em;
+        width: 35em;
+        height: 35em;
         position: absolute;
-        top:20%;
+        top:10%;
+        left: 38%;
         opacity: 0.8
 
     }
 
-    .about-detail h1{
-        padding-top: 1em;
+    .about_detail h1{
+        padding-top: 2em;
+        color: #c47d7d;
     }
 
 

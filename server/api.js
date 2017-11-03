@@ -21,6 +21,7 @@ router.get('/api/search/:text',(req,res)=>{
 
 });
 
+//读取特定文章
 router.get('/api/admin/essay/:id',(req,res)=>{
 
     db.Article.find({_id:req.params.id},function (err,data) {
@@ -93,10 +94,47 @@ router.post('/api/admin/save',(req,res) => {
         if (err) {
             res.send(err);
         } else {
-            res.send('create essay succeed');
+            res.send(data);
         }
     });
 });
+
+//保存评论
+
+router.post('/api/saveComment/:id',(req,res)=>{
+    let newComment=new db.Comment({
+        email:req.body.email,
+        comment:req.body.comment,
+        nickname:req.body.nickname,
+        index:req.params.id  //作为评论的检索
+    });
+    newComment.save((err)=>{
+        if(err){
+            console.error(err);
+            res.send(err);
+        }else{
+            res.send('submit comment successfully')
+        }
+    })
+});
+
+//读取特定文章评论评论
+
+
+router.get('/api/comment/:id',(req,res)=>{
+
+        db.Comment.find({index:eval('/'+req.params.id+'/')},function (err,data) {
+            if(err){
+                console.error(err)
+                res.send(err)
+                return
+            }else{
+                res.send(data)
+            }
+        })
+    }
+);
+
 
 //保存编辑后的文章
 
@@ -175,11 +213,9 @@ router.get('/api/admin',function (req,res) {
     const loginAccount = req.session.account;
     const isLogined = !!loginAccount;
     if (isLogined) {
-        console.log('Having logined');
         res.json({code:0,msg:'Having logined!'})
 
     } else {
-        console.log('Having not logined');
         res.json({code:1,msg:'Having not logined!'})
     }
 });

@@ -2,7 +2,7 @@
 
  <div class="login">
 
-    <p class="background_text"> Web management system</p>
+
 
   <div class="login_box">
 
@@ -28,17 +28,14 @@
     }
 
     .login_button{
-        background-color: darkcyan;
+        background-color: #c47d7d;
         color: white;
         width: 8em;
         margin-left: 40%;
         margin-top: 2em;
 
     }
-    .background_text{
-        font-size: 8em;
-        color: darkcyan;
-    }
+
 
     .login_box input{
         border: none;
@@ -58,8 +55,8 @@
     }
     .login{
         width: 100%;
-        height: 45em;
-        background-color: #f2f2f2;
+        height: 40em;
+        background-color: #f7f7f7;
         position: relative;
     }
 
@@ -127,6 +124,8 @@
                         console.log(response);
                         if (response.body.code===0) {
                             that.$router.push('/admin/back')
+                        }else{
+                            alert("Fail to login!")
                         }
                     })
 

@@ -11,13 +11,22 @@ const userSchema = new mongoose.Schema({
     password : String
 });
 
-var articleSchema =new mongoose.Schema({
+const articleSchema =new mongoose.Schema({
     title:String,
     content:String,
 });
 
+const commentSchema =new mongoose.Schema({
+    nickname:String,
+    email:String,
+    comment:String,
+    index:String
+});
+
+
 
 const Models = {
+    Comment:mongoose.model('Comment',commentSchema),
     Users : mongoose.model('Users',userSchema),
     Article:mongoose.model('Article',articleSchema)
 };

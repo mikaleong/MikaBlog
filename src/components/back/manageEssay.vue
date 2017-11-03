@@ -1,12 +1,13 @@
 <template>
     <div class="content">
 
-            <div class="logoutButton" @click="logout" >click to LOG OUT</div>
+            <div class="logoutButton" @click="logout" >click here to LOG OUT</div>
    <div class="essayList">
         <div class="essayBox" v-for="item in essays">
+            <div class="essayEdit" @click="editEssay(item._id)"><img class="edit_icon" src="../../assets/img/edit.png"></div>
+            <div class="essayDelete" @click="deleteEssay(item._id)"><img class="delete_icon" src="../../assets/img/delete.png"></div>
             <div class="essayTitle">《{{item.title}}》</div>
-            <div class="essayEdit" @click="editEssay(item._id)">Edit</div>
-            <div class="essayDelete" @click="deleteEssay(item._id)">delete</div>
+
         </div>
    </div>
 
@@ -16,35 +17,49 @@
 
 <style>
 
+    .essayList{
+        margin-top: 5em;
+    }
+
+    .edit_icon,.delete_icon{
+        width: 1em;
+    }
+
     .logoutButton{
         text-align: left;
         color: darkgray;
-        padding:1em  0 0 1em;
-
+        margin:2em 0 0 20em;
+        width: 11em;
+        border: solid 1px #f7f7f7;
     }
 
    .content{
        text-align: center;
+       margin-bottom: 5em;
    }
 
     .essayBox{
         margin:0 auto;
         margin-top: 1em;
         width: 50%;
+        text-align: left;
 
     }
 
     .essayTitle{
         display: inline;
-        background-color: #fceaea;
+        background-color: #f7f7f7;
+        margin-left: 0.5em;
     }
 
     .essayEdit{
         display: inline;
+
     }
 
     .essayDelete{
         display: inline;
+        padding-left: 0.5em;
     }
 
 
@@ -87,12 +102,14 @@
             //删除文章
 
             deleteEssay:function (id) {
-                var that=this;
-                that.$http.post('api/admin/deleteEssay/'+id).then(
-                    (response)=>{
-                        that.refresh();
-                    }
-                )
+               if(confirm("Are you sure to delete this essay?")) {
+                   var that = this;
+                   that.$http.post('api/admin/deleteEssay/' + id).then(
+                       (response) => {
+                           that.refresh();
+                       }
+                   )
+               }
 
             }
 
