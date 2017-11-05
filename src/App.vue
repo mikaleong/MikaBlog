@@ -15,9 +15,9 @@
     </div>
 
 
-<transtion :name="transitionName">
+
     <router-view class="view" id="view"></router-view>
-</transtion>
+
 
     </div>
 

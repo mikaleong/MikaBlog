@@ -3,7 +3,7 @@
   <div class="detail_body">
     <div class="detail">
     <div class="detail_title">《{{title}}》</div>
-    <div class="detail_content">{{content}}</div>
+      <div class="detail_content">{{content}}</div>
     </div>
 
     <div class="comment">
@@ -89,7 +89,7 @@
     margin: 1em 0 2em 25%;
     background-color: white;
     box-shadow: 1px 1px 3px #eaeaea;
-    width: 45%;
+    width: 48%;
     height: 6em;
     position: relative;
   }
@@ -108,6 +108,11 @@
     text-align: left;
     left:1em;
     top:2em;
+    color: #777777 ;
+    line-height: 2;
+    letter-spacing: 0.1em;
+    text-align: left;
+    white-space:pre-wrap;
   }
 
 
@@ -127,6 +132,7 @@
     height: 60%;
     width: 95%;
     margin-top: 1em;
+    margin-left: 0.5em;
     color:#777777;
     font-size: 1em;
   }
@@ -142,14 +148,12 @@
     margin: 2em 0 3em 25%;
     background-color: white;
     box-shadow: 1px 1px 3px #eaeaea;
-    width: 45%;
+    width: 48%;
     height: 12em;
 
   }
 
-  .detail_body{
 
-  }
   .detail_title{
     margin-top: 2em;
     font-size: 3em;
@@ -157,7 +161,7 @@
 
   }
 
-  .detail_content{
+  .detail_content {
     color: #777777;
     width: 50%;
     margin-top: 5em;
@@ -166,7 +170,9 @@
     line-height: 2;
     letter-spacing: 0.1em;
     text-align: left;
+    white-space:pre-wrap;
   }
+
 
 
   @media screen and (max-width: 980px) {

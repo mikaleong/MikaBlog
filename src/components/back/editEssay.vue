@@ -37,6 +37,8 @@
 
     }
 
+
+
     .save_button span{
 
         text-align: center;
@@ -59,6 +61,7 @@
         color: #777777;
     }
     .edit_content{
+        word-wrap:normal;
         border: none;
         font-size: 1em;
         overflow:scroll;
