@@ -55,25 +55,25 @@ npm run dev
 
 首页
 
-![]('https://github.com/mikaleong/MikaBlog/raw/master/screenshot/Screen%20Shot%202017-11-05%20at%204.10.47%20PM.png')
+![](https://github.com/mikaleong/MikaBlog/raw/master/screenshot/Screen%20Shot%202017-11-05%20at%204.10.47%20PM.png)
 
 
 文章目录
 
-![]('https://github.com/mikaleong/MikaBlog/raw/master/screenshot/Screen%20Shot%202017-11-05%20at%206.18.02%20PM.png')
+![](https://github.com/mikaleong/MikaBlog/raw/master/screenshot/Screen%20Shot%202017-11-05%20at%206.18.02%20PM.png)
 
 留言区
 
-![]('https://github.com/mikaleong/MikaBlog/raw/master/screenshot/Screen%20Shot%202017-11-05%20at%205.03.13%20PM.png')
+![](https://github.com/mikaleong/MikaBlog/raw/master/screenshot/Screen%20Shot%202017-11-05%20at%205.03.13%20PM.png)
 
 关于
 
-![]('https://github.com/mikaleong/MikaBlog/raw/master/screenshot/Screen%20Shot%202017-11-05%20at%204.11.15%20PM.png?raw=true')
+![](https://github.com/mikaleong/MikaBlog/raw/master/screenshot/Screen%20Shot%202017-11-05%20at%204.11.15%20PM.png?raw=true)
 
 登陆
 
-![]('https://github.com/mikaleong/MikaBlog/raw/master/screenshot/Screen%20Shot%202017-11-05%20at%204.15.49%20PM.png?raw=true')
+![](https://github.com/mikaleong/MikaBlog/raw/master/screenshot/Screen%20Shot%202017-11-05%20at%204.15.49%20PM.png?raw=true)
 
 简单响应式
 
-![]('https://github.com/mikaleong/MikaBlog/raw/master/screenshot/Screen%20Shot%202017-11-05%20at%206.20.42%20PM.png?raw=true')
+![](https://github.com/mikaleong/MikaBlog/raw/master/screenshot/Screen%20Shot%202017-11-05%20at%206.20.42%20PM.png?raw=true)
