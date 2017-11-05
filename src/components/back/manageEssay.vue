@@ -61,6 +61,27 @@
         display: inline;
         padding-left: 0.5em;
     }
+    @media screen and (max-width: 980px) {
+        .edit_icon,.delete_icon{
+            width: 2em;
+        }
+        .logoutButton{
+            font-size: 2em;
+            margin:2em 0 0 2em;
+
+        }
+
+        .essayTitle{
+            font-size: 2em;
+        }
+
+        .essayBox{
+            width: 85%;
+            margin-top: 2em;
+
+        }
+
+    }
 
 
 </style>

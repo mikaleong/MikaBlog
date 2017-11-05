@@ -67,6 +67,20 @@
         color: #777777;
     }
 
+    @media screen and (max-width: 980px) {
+
+        .edit p{
+            padding-left: 10%;
+        }
+        .edit_title{
+            width: 80%;
+        }
+        .edit_content{
+            width: 80%;
+        }
+
+    }
+
 </style>
 
 <script>

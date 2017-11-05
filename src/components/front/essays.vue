@@ -59,6 +59,24 @@
        margin-bottom: 10em;
    }
 
+    @media screen and (max-width: 980px) {
+
+        .essay_intro{
+            padding-top: 20em;
+        }
+        .essay_title{
+            left: 5%;
+            font-size: 2em;
+        }
+        .essay_box{
+            width: 90%;
+            margin-left: 2em;
+            height: 5em;
+            margin-top: 3em;
+        }
+
+    }
+
 </style>
 
 <script>

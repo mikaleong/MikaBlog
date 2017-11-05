@@ -78,6 +78,13 @@
 
     }
 
+    @media screen and (max-width: 980px) {
+        .login_box{
+            width: 70%;
+            height: 42%;
+        }
+    }
+
 </style>
 
 

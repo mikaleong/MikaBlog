@@ -50,7 +50,6 @@ router.get('/api/admin/essays',(req,res)=>{
 
 
 router.post('/api/admin/register',(req,res) => {
-    // 这里的req.body能够使用就在index.js中引入了const bodyParser = require('body-parser')
     let newAccount = new db.Users({
         account: req.body.account,
         password: req.body.password
@@ -75,10 +74,34 @@ router.post('/api/admin/deleteEssay/:id',(req,res)=>{
         console.error(err);
         res.send(err);
         }else{
-            res.send();
+            res.send('delete essay successfully');
         }
 
     })
+
+});
+
+//删除评论
+
+router.post('/api/deleteComment/:id',(req,res)=>{
+
+    if(testSession(req)){
+
+    db.Comment.remove({_id:req.params.id},(err)=>{
+        if(err){
+            console.error(err);
+            res.send(err)
+        }else{
+           res.json({
+               code:0,
+               msg:'delete this comment successfully'})
+        }
+    })
+    }else{
+        res.json({
+            code:1,
+            msg:'fail to delete this comment '})
+    }
 
 });
 
@@ -209,10 +232,15 @@ router.get('/api/admin/logout',(req,res)=>{
    res.redirect('/login')
 });
 
-router.get('/api/admin',function (req,res) {
-    const loginAccount = req.session.account;
+const testSession=function (i) {
+    const loginAccount = i.session.account;
     const isLogined = !!loginAccount;
-    if (isLogined) {
+    return isLogined;
+};
+
+router.get('/api/admin',function (req,res) {
+
+    if (testSession(req)) {
         res.json({code:0,msg:'Having logined!'})
 
     } else {

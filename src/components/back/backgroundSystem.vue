@@ -27,6 +27,19 @@
         margin-top: 1em;
         text-align: left;
     }
+
+    @media screen and (max-width: 980px) {
+
+        .newButton{
+           width: 50%;
+        }
+
+        .manageButton{
+            width: 70%;
+        }
+
+    }
+
 </style>
 
 <script>

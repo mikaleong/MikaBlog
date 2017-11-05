@@ -1,5 +1,5 @@
 <template>
-
+<div>
   <div class="detail_body">
     <div class="detail">
     <div class="detail_title">《{{title}}》</div>
@@ -14,7 +14,7 @@
         <input class="code_input" type="text"  v-model="captcha">
         <div class="code_box" @click="createCode" v-model="code" >{{code}}</div>
         <div class="comment_button" @click="submitComment">submit</div>
-       <textarea  placeholder="write your comment here...." v-model="comment" ></textarea>
+       <textarea  ref="comment_box"  placeholder="write your comment here...." v-model="comment" ></textarea>
 
         <div class="code_box">
 
@@ -26,22 +26,42 @@
 
       <div class="comment_list">
       <div class="comment_item" v-for="item in comments">
-        <h5>{{item.nickname}}</h5>
+        <div class="comment_name">
+          <span>{{item.nickname}}</span>
+          <span  class="comment_reply" @click="reply_comment(item.nickname)"> >> REPLY</span>
+          <div class="comment_delete" @click="delete_comment(item._id)">X</div>
+        </div>
+
         <p>{{item.comment}}</p>
       </div>
       </div>
     </div>
   </div>
+</div>
 
 </template>
 
 
 <style>
 
-  .comment_button{
- display: inline;
-    margin-left: 3em;
 
+  .comment_delete {
+    display: inline;
+  color: #eaeaea;
+    font-size: 0.7em;
+    position: absolute;
+    left: 90%;
+  }
+  .comment_reply{
+    font-weight: normal;
+    font-size: 0.7em;
+    color: #c47d7d;
+
+  }
+
+  .comment_button{
+    display: inline;
+    margin-left: 3em;
     background-color: #ffeded;
     color: dimgray;
     border-radius: 50%;
@@ -74,10 +94,13 @@
     position: relative;
   }
 
-  .comment_item h5{
+  .comment_name{
     position: absolute;
     text-align: left;
+    top:1em;
     left: 1.2em;
+    font-weight: bold;
+    width: 100%;
   }
 
   .comment_item p{
@@ -145,6 +168,29 @@
     text-align: left;
   }
 
+
+  @media screen and (max-width: 980px) {
+
+
+    .detail_content{
+      margin-left: 15%;
+      width: 75%;
+    }
+
+    .comment_item {
+      width: 80%;
+      margin: 2em 0 3em 6em;
+    }
+
+    .comment_box{
+      width: 80%;
+      margin: 2em 0 3em 6em;
+
+
+    }
+
+  }
+
 </style>
 
 
@@ -181,6 +227,43 @@
 
         },
         methods:{
+            getUserDetails(transition)
+            {
+                let id = this.$route.params.id;
+                this.$http.get('/api/admin/essay/'+id).then(
+                    (response)=> {this.content=response.body[0].content,
+                        this.title=response.body[0].title,
+                        console.log(response)
+                    }
+                );
+
+                this.$http.get( '/api/comment/'+id).then(
+                    (response)=> {this.comments=response.body,
+                        console.log(response)
+                    }
+                )
+
+            },
+
+            delete_comment:function (id) {
+                this.$http.post('/api/deleteComment/'+id).then(
+                    (response)=>{
+                        if(response.body.code===0){
+                        alert('Delete this comment successfully')
+                        this.refresh();
+                        }else{
+                            alert('Fail to delete this comment! Maybe you don\'t have the authority to do this!' )
+                        }
+                    }
+                )
+            },
+
+            reply_comment:function (name) {
+                this.comment="@"+name+':';
+                this.$refs.comment_box.focus();
+
+            },
+
             createCode:function () {
                 let captcha='';
                 let Length = 4;//验证码的长度
@@ -193,11 +276,20 @@
                 }
                 this.code = captcha;//
             },
+            cleanText:function () {
+                this.comment='';
+                this.captcha='';
+                this.email='';
+                this.nickname='';
+                this.code='captcha';
+
+            },
 
             refresh:function () {
                 this.$http.get( '/api/comment/'+this.$route.params.id).then(
                     (response)=> {this.comments=response.body,
-                        console.log(response)
+                        console.log(response);
+                        this.cleanText()
                     }
                 )
 

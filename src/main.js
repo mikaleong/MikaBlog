@@ -27,6 +27,8 @@ Vue.config.productionTip = false;
 
 //定义路由
 const routes = [
+    {path:'/',
+        redirect:'/homepage'},
   { path: '/about' ,
     component: about },
   { path: '/essays' ,

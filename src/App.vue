@@ -3,9 +3,11 @@
 
     <div class="navbar">
       <ul class="nav_list">
-        <li></li>
-        <li class="search_box" > <input type="search" v-model="text" > <button @click="search(text)">SEARCH</button></li>
-        <li> <router-link to="/homepage">HOMEPAGE</router-link></li>
+        <li class="search_box" > <input type="search" v-model="text" >
+          <div class="search_icon" @click="search(text)">
+            <img src="../static/search.png"> </div>
+        </li>
+        <li > <router-link to="/homepage">HOMEPAGE</router-link></li>
         <li>  <router-link to="/essays">ESSAYS</router-link></li>
         <li>  <router-link to="/about">ABOUT</router-link></li>
         <li><router-link to="/login">LOGIN</router-link></li>
@@ -13,22 +15,32 @@
     </div>
 
 
-
+<transtion :name="transitionName">
     <router-view class="view" id="view"></router-view>
-
+</transtion>
 
     </div>
 
 </template>
+
 
 <script>
 export default {
   name: 'app',
     data(){
       return{
-      text:''
+      text:'',
+      transitionName: 'slide-right'
       }
     },
+    watch: {
+        '$route' (to, from) {
+            const toDepth = to.path.split('/').length
+            const fromDepth = from.path.split('/').length
+            this.transitionName = toDepth < fromDepth ? 'slide-right' : 'slide-left'
+        }
+    }
+    ,
     methods:{
         search:function (text) {
             this.$router.push('/search/'+text)
@@ -39,9 +51,8 @@ export default {
 
 <style>
 
-  .nav_list li img{
-    width: 5em;
-  }
+
+
   .navbar{
    position: relative;
     display: block;
@@ -55,9 +66,19 @@ export default {
     margin-right: 7em;
   }
 
-  .search_box button{
-    color: darkgrey;
+  .search_box input{
+    height: 2em;
+    width: 9em;
   }
+
+  .search_icon{
+    display: inline;
+  }
+  .search_icon img{
+    height: 1.2em;
+    width: 1.2em;
+  }
+
 
   .nav_list{
     width: 100%;
@@ -112,6 +133,8 @@ export default {
   overflow-y: scroll;
 }
 
+
+
 #app {
   font-family: 'Avenir', Helvetica, Arial, sans-serif;
   -webkit-font-smoothing: antialiased;
@@ -119,4 +142,28 @@ export default {
   text-align: center;
   color: #2c3e50;
 }
+
+
+
+  @media screen and (max-width: 980px) {
+
+
+    .search_box{
+      margin-right: -100em;
+}
+
+    .navbar{
+      height: 5em;
+    }
+    .nav_list li{
+      font-size: 2em;
+    }
+
+    .search_box input{
+      width: 5em;
+      border: solid 0.2em darkgray;
+      margin-left: -100em;
+    }
+  }
+
 </style>

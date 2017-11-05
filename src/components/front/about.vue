@@ -25,8 +25,8 @@
 
             <div  class="contact">
 
-                <a  href="https://www.zhihu.com/people/mikaleong" target="_blank">
-                    <img ref="zhihu" class="zhihu" src="../../assets/img/zhihu-link.png"></a>
+                <a @mouseover="zhihu"  href="https://www.zhihu.com/people/mikaleong" target="_blank">
+                    <img  ref="zhihu" class="zhihu" src="../../assets/img/zhihu-link.png"></a>
                 <a href="https://weibo.com/213b" target="_blank"><img class="weibo" src="../../assets/img/weibo-link.png"></a>
                 <a href="https://github.com/mikaleong" target="_blank"><img class="github" src="../../assets/img/github-link.png"></a>
 
@@ -47,6 +47,12 @@
             }
         },
         methods:{
+
+            zhihu:function () {
+
+
+
+            }
 
 
         }
@@ -70,7 +76,7 @@
         background-color:#f7f7f7;
         width: 100%;
         height:45em;
-        background-size:100%,45em;
+
         position: relative;
 
     }
@@ -102,6 +108,20 @@
         width: 3em;
         height:auto;
         padding:2em 3em 0 3em;
+    }
+
+    @media screen and (max-width: 980px) {
+
+        .about_pic{
+            left:10%;
+        }
+        .about_detail {
+        left: 30%;
+        }
+        .about{
+            height:45em;
+        }
+
     }
 
 
